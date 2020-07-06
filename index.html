@@ -87,7 +87,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>#C基礎筆記(數據類型)</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   學了兩三年的Python,但近來發現Python未必能幫助自己達成未來的目標，所以決定學C。學了幾天，真的覺得寫過Python,再學其他language會比較吃力。</span><br><span class="line">這個blog只是為了紀錄學習過程，如有錯漏，請不吝賜教。</span><br></pre></td></tr></table></figure>
+<p>​        學了兩三年的Python,但近來發現Python未必能幫助自己達成未來的目標，所以決定學C。學了幾天，真的覺得寫過Python,再學其他language會比較吃力。<br>這個blog只是為了紀錄學習過程，如有錯漏，請指正。</p>
 <p>##數據類型</p>
 <p>###位、字節、和字</p>
 <ul>
@@ -134,7 +134,7 @@
 </ul>
 <p>####整數溢出</p>
 <p>如果整數超越取值範圍，會重新從起點開始</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2147483647</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, i, i+<span class="number">1</span>, i+<span class="number">2</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">// 2147483647 -2147483648 -2147483647</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2147483647</span></span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, i, i+<span class="number">1</span>, i+<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">// 2147483647 -2147483648 -2147483647</span></span><br></pre></td></tr></table></figure>
 
 <p>###浮點數float</p>
 <ul>
