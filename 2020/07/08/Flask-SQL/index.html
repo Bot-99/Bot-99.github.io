@@ -7,15 +7,15 @@
   
   <title>Flask&amp;SQL | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Flask簡單操作初始步驟,打開terminal（linux／mac）／ cmd（win） 12mkdir myPage #開一個foldertouch app.py #創建一個app.py的file 建立一個folder，是為了方便其後管理 其後我們用編輯app.py 12345678910#app.pyfrom flask import Flaskapp &#x3D; Flask(__name__)@a">
+  <meta name="description" content="Flask簡單操作初始步驟,打開terminal（linux／mac）／ cmd（win） 12mkdir myPage #開一個foldertouch app.py #創建一個app.py的file 建立一個folder，是為了方便其後管理 其後我們編輯app.py 12345678910#app.pyfrom flask import Flaskapp &#x3D; Flask(__name__)@ap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flask&amp;SQL">
 <meta property="og:url" content="http://yoursite.com/2020/07/08/Flask-SQL/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Flask簡單操作初始步驟,打開terminal（linux／mac）／ cmd（win） 12mkdir myPage #開一個foldertouch app.py #創建一個app.py的file 建立一個folder，是為了方便其後管理 其後我們用編輯app.py 12345678910#app.pyfrom flask import Flaskapp &#x3D; Flask(__name__)@a">
+<meta property="og:description" content="Flask簡單操作初始步驟,打開terminal（linux／mac）／ cmd（win） 12mkdir myPage #開一個foldertouch app.py #創建一個app.py的file 建立一個folder，是為了方便其後管理 其後我們編輯app.py 12345678910#app.pyfrom flask import Flaskapp &#x3D; Flask(__name__)@ap">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-08T02:48:08.000Z">
-<meta property="article:modified_time" content="2020-07-08T07:10:53.000Z">
+<meta property="article:modified_time" content="2020-07-08T07:21:14.000Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Flask">
@@ -94,7 +94,7 @@
         <h2 id="Flask簡單操作"><a href="#Flask簡單操作" class="headerlink" title="Flask簡單操作"></a>Flask簡單操作</h2><p>初始步驟,打開terminal（linux／mac）／ cmd（win）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir myPage #開一個folder</span><br><span class="line">touch app.py #創建一個app.py的file</span><br></pre></td></tr></table></figure>
 <p>建立一個folder，是為了方便其後管理</p>
-<p>其後我們用編輯<code>app.py</code></p>
+<p>其後我們編輯<code>app.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app.py</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello world"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">if __name__ == '</span>__main__<span class="string">':</span></span><br><span class="line"><span class="string">    app.run()</span></span><br></pre></td></tr></table></figure>
 <p>保存好後，我們回到terminal</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 app.py</span><br></pre></td></tr></table></figure>
@@ -104,9 +104,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.run(host = <span class="string">'0.0.0.0'</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="必用"><a href="#必用" class="headerlink" title="必用"></a>必用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/main/&lt;string:id_&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(id_)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> id_</span><br></pre></td></tr></table></figure>
-<p>利用<code>@app.route(&#39;main&#39;)</code>可以以<code>main</code>為名創建一個新page，當訪問時，只需要在初始地址<code>http://127.0.0.1:5000／</code>加上<code>main</code>,<br>即是<code>http://127.0.0.1:5000／main</code>。 而我們亦須利用<code>def</code>命名同名的func。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果需多個argumen，即&#96;&#96;&#96;main&#x2F;&lt;string:id_&gt;&#x2F;&lt;int:total&gt;</span><br></pre></td></tr></table></figure>
-<p>使用時，只需在地址上加上參數，如<code>http://127.0.0.1:5000/main/1234／50</code></p>
+
+<p>利用<code>@app.route(&#39;main&#39;)</code>可以以<code>main</code>為名創建一個新page，當訪問時，只需要在初始地址<code>http://127.0.0.1:5000／</code>加上<code>main</code>,即是<code>http://127.0.0.1:5000／main</code>。 而我們亦須利用<code>def</code>命名同名的func。<br><code>&lt;string:id_&gt;</code>能創建參數（argument），如需使用，填入func即可，如上述<code>main(id_)</code>。當需多個argument，即<code>main/&lt;string:id_&gt;/&lt;int:total&gt;</code>使用時，只需在地址上加上參數，如<code>http://127.0.0.1:5000/main/1234/50</code></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/" target="_blank" rel="noopener">https://flask.palletsprojects.com/en/1.1.x/quickstart/</a></li>
 <li><a href="https://stackoverflow.com" target="_blank" rel="noopener">https://stackoverflow.com</a> (有些是上年看的，所以沒有紀錄)</li>
