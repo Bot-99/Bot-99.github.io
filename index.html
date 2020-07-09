@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/09/c-basic-ch5/">c-basic-ch5</a>
+      <a class="article-title" href="/2020/07/09/c-basic-ch5/">C basic(運算符號、表達式和語句)</a>
     </h1>
   
 
@@ -84,13 +84,58 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><ul>
+<li><p><code>()</code> 左至右</p>
+</li>
+<li><p><code>+ -</code> 右至左 <code>e.g. -6.4 +7</code></p>
+</li>
+<li><p><code>* /</code> 左至右</p>
+</li>
+<li><p><code>+ -</code> 左至右 <code>e.g. 80 + 9</code></p>
+</li>
+<li><p><code>=</code> 右至左 <code>e.g. s = 9</code></p>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><p><code>sizeof</code> 返回運算對象大小（上一篇有提及）</p>
+<p><code>size_t</code> 無符號整數類型</p>
+</li>
+<li><p><code>%</code> 用於求餘數（只限整數）</p>
+</li>
+<li><p>++ ／ –</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">p = <span class="number">2</span> * count++;	<span class="comment">//p = 2</span></span><br><span class="line">count = <span class="number">1</span>;</span><br><span class="line">q = <span class="number">2</span> * ++count; 	<span class="comment">//q = 4</span></span><br></pre></td></tr></table></figure>
+
+<p><code>count++</code> 利用count的val，後+1</p>
+<p><code>++count</code> 先+1，後用count的val</p>
+</li>
+</ul>
+<h4 id="優先"><a href="#優先" class="headerlink" title="優先"></a>優先</h4><p><code>x*y++</code>  等於 <code>(x)*(y++)</code></p>
+<p>因為<code>++/--</code> 只能影響一個val</p>
+<h2 id="類型轉換"><a href="#類型轉換" class="headerlink" title="類型轉換"></a>類型轉換</h2><p>類型升級大多數不會有問題，而類型降級則會容易有bug，因為低類型未必能完整放下整個數字</p>
+<p>當類型不匹配時，有以下三個規則</p>
+<ul>
+<li>無符號轉整數，額外的位會被忽略</li>
+<li>有符號轉整數，因實現而異</li>
+<li>整型轉浮點數，行為未定義</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ch = <span class="number">1107</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Now ch = %c\n"</span>, ch);</span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//Now ch = S</span></span><br></pre></td></tr></table></figure>
+
+<p>這是一個類型降級的例子， <code>ch = 1107 % 265</code>等於<code>83</code>，即是<code>S</code>的ascii碼</p>
+<h4 id="強制轉換-類別名"><a href="#強制轉換-類別名" class="headerlink" title="強制轉換 (類別名)"></a>強制轉換 <code>(類別名)</code></h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ans = <span class="number">1.5</span> + <span class="number">1.5</span>; <span class="comment">// ans = 3</span></span><br><span class="line">ans = (<span class="keyword">int</span>)<span class="number">1.5</span> + <span class="number">1</span> <span class="comment">// ans = 2</span></span><br></pre></td></tr></table></figure>
+
+<p>第二行，1.5在相加前被轉換成1</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li>C prime plus</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/09/c-basic-ch5/" data-id="ckceopv3p0005gnro2nimbhvl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/09/c-basic-ch5/" data-id="ckcerv87p0002y2ro7z0k4jvv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
+
     </footer>
   </div>
   
@@ -136,7 +181,7 @@
 
 <hr>
 <p>次次玩SQL都唔記得</p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
 <li><a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">https://www.w3schools.com/sql/</a></li>
 <li><a href="https://sqlbackupandftp.com/blog/mariadb-backup-and-restore-overview" target="_blank" rel="noopener">https://sqlbackupandftp.com/blog/mariadb-backup-and-restore-overview</a></li>
 </ol>
@@ -144,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/08/SQL-basic/" data-id="ckceopv3o0004gnroa5256yua" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/08/SQL-basic/" data-id="ckcerv87s0004y2ro3mds9gf7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
@@ -199,7 +244,7 @@
 <p>利用<code>@app.route(&#39;main&#39;)</code>可以以<code>main</code>為名創建一個新page，當訪問時，只需要在初始地址<code>http://127.0.0.1:5000／</code>加上<code>main</code>，即是<code>http://127.0.0.1:5000／main</code>。 而我們亦須利用<code>def</code>命名同名的func。<br><code>&lt;string:id_&gt;</code>能創建參數（argument），使用時，填入func即可，如上述<code>main(id_)</code>。當需多個argument，即<code>main/&lt;string:id_&gt;/&lt;int:total&gt;</code>使用時，只需在地址上加上參數，如<code>http://127.0.0.1:5000/main/1234/50</code></p>
 <hr>
 <p>​    近排幫師弟師妹手，順便重溫一下舊年玩過嘅flask</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
 <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/" target="_blank" rel="noopener">https://flask.palletsprojects.com/en/1.1.x/quickstart/</a></li>
 <li><a href="https://stackoverflow.com" target="_blank" rel="noopener">https://stackoverflow.com</a> (有些是上年看的，所以沒有紀錄)</li>
 </ol>
@@ -207,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/08/Flask-basic/" data-id="ckceopv3h0000gnroh06d463h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/08/Flask-basic/" data-id="ckcerv87l0000y2roduy73nuq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
@@ -219,9 +264,9 @@
 
 
   
-    <article id="post-c-basic-ch3" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-c_basic_ch3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/07/06/c-basic-ch3/" class="article-date">
+    <a href="/2020/07/06/c_basic_ch3/" class="article-date">
   <time datetime="2020-07-06T11:04:13.000Z" itemprop="datePublished">2020-07-06</time>
 </a>
     
@@ -233,7 +278,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/06/c-basic-ch3/">C basic(數據類型)</a>
+      <a class="article-title" href="/2020/07/06/c_basic_ch3/">C basic(數據類型)</a>
     </h1>
   
 
@@ -304,7 +349,7 @@
 <li>lond doube = 16 bytes</li>
 </ul>
 <hr>
-<p>​    學左python，再學C真係好__痛苦啊！</p>
+<p>​    學左python，再學C真係好 痛苦啊！</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li>C primer plus</li>
 </ol>
@@ -312,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/06/c-basic-ch3/" data-id="ckceopv3l0002gnrofphwhs24" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/06/c_basic_ch3/" data-id="ckcerv87u0005y2roc1om8wdp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
@@ -347,7 +392,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a>
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a>
     </div>
   </div>
 
@@ -369,7 +414,7 @@
       <ul>
         
           <li>
-            <a href="/2020/07/09/c-basic-ch5/">c-basic-ch5</a>
+            <a href="/2020/07/09/c-basic-ch5/">C basic(運算符號、表達式和語句)</a>
           </li>
         
           <li>
@@ -381,7 +426,7 @@
           </li>
         
           <li>
-            <a href="/2020/07/06/c-basic-ch3/">C basic(數據類型)</a>
+            <a href="/2020/07/06/c_basic_ch3/">C basic(數據類型)</a>
           </li>
         
       </ul>
