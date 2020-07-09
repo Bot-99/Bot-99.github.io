@@ -5,16 +5,19 @@
   
 
   
-  <title>SQL_basic | Bot-99&#39;s blog</title>
+  <title>SQL basic （MariaDB) | Bot-99&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="SQL_basic">
+  <meta name="description" content="創建db的簡單流程123456CREATE DATABASE test; #創建一個名test的dbUSE office; #用officeCREATE TABLE employee(  #在office下創建一個table	id_ int,							#第一列名稱是id_	name varchar(255)   	#第二列名稱是name);  新增data12INSERT INTO emplo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL basic （MariaDB)">
 <meta property="og:url" content="http://yoursite.com/2020/07/08/SQL-basic/index.html">
 <meta property="og:site_name" content="Bot-99&#39;s blog">
+<meta property="og:description" content="創建db的簡單流程123456CREATE DATABASE test; #創建一個名test的dbUSE office; #用officeCREATE TABLE employee(  #在office下創建一個table	id_ int,							#第一列名稱是id_	name varchar(255)   	#第二列名稱是name);  新增data12INSERT INTO emplo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-08T13:55:08.000Z">
-<meta property="article:modified_time" content="2020-07-08T13:55:08.000Z">
+<meta property="article:modified_time" content="2020-07-09T11:04:12.000Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
   
   
@@ -76,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SQL_basic
+      SQL basic （MariaDB)
     </h1>
   
 
@@ -84,23 +87,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="創建db的簡單流程"><a href="#創建db的簡單流程" class="headerlink" title="創建db的簡單流程"></a>創建db的簡單流程</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">test</span>; <span class="comment">#創建一個名test的db</span></span><br><span class="line"><span class="keyword">USE</span> office; <span class="comment">#用office</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> employee(  <span class="comment">#在office下創建一個table</span></span><br><span class="line">	id_ <span class="built_in">int</span>,							<span class="comment">#第一列名稱是id_</span></span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">255</span>)   	<span class="comment">#第二列名稱是name</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="新增data"><a href="#新增data" class="headerlink" title="新增data"></a>新增data</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> employee  <span class="comment">#往employee添加一個data</span></span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">1234</span>, <span class="string">'Tim'</span>)   <span class="comment">#id_ = 1234, name = 'Tim'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更新data"><a href="#更新data" class="headerlink" title="更新data"></a>更新data</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> employee  <span class="comment">#更改id_ = 1234中name的data</span></span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">name</span> = <span class="string">'Sam'</span></span><br><span class="line"><span class="keyword">WHERE</span> id_ = <span class="number">1234</span></span><br></pre></td></tr></table></figure>
+<p>如要更新所有data的某個var成同一個值，可以去掉<code>WHERE id_ = 1234</code>,但切記三思而行</p>
+<h3 id="查閱命令"><a href="#查閱命令" class="headerlink" title="查閱命令"></a>查閱命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>; <span class="comment">#可以知道目前sql有哪些db</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;  <span class="comment">#可以知道在當前db中有哪些tables</span></span><br></pre></td></tr></table></figure>
+<p>當我們想知道table中有哪些data</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employee</span><br></pre></td></tr></table></figure>
+<p>上述語句中<code>*</code>代表全部的意思，所以當我們需要<code>id_</code>一列時，只需</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> id_ <span class="keyword">FROM</span> employee</span><br></pre></td></tr></table></figure>
+
+<h3 id="備份／復原db"><a href="#備份／復原db" class="headerlink" title="備份／復原db"></a>備份／復原db</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump office &gt; office_bp.sql # 備份</span><br><span class="line">mysql office &lt; office_bp.sql 		#復原</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>次次玩SQL都唔記得</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">https://www.w3schools.com/sql/</a></li>
+<li><a href="https://sqlbackupandftp.com/blog/mariadb-backup-and-restore-overview" target="_blank" rel="noopener">https://sqlbackupandftp.com/blog/mariadb-backup-and-restore-overview</a></li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/08/SQL-basic/" data-id="ckceb9p750000inroeohy8mjk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/08/SQL-basic/" data-id="ckceopv3o0004gnroa5256yua" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/2020/07/09/c-basic-ch5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          c-basic-ch5
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/07/08/Flask-basic/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Flask基本操作</div>
+      <div class="article-nav-title">Flask basic</div>
     </a>
   
 </nav>
@@ -119,7 +153,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
     </div>
   </div>
 
@@ -129,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a>
+      <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a>
     </div>
   </div>
 
@@ -151,15 +185,19 @@
       <ul>
         
           <li>
-            <a href="/2020/07/08/SQL-basic/">SQL_basic</a>
+            <a href="/2020/07/09/c-basic-ch5/">c-basic-ch5</a>
           </li>
         
           <li>
-            <a href="/2020/07/08/Flask-basic/">Flask基本操作</a>
+            <a href="/2020/07/08/SQL-basic/">SQL basic （MariaDB)</a>
           </li>
         
           <li>
-            <a href="/2020/07/06/c_basic/">C基礎筆記(數據類型)</a>
+            <a href="/2020/07/08/Flask-basic/">Flask basic</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/06/c-basic-ch3/">C basic(數據類型)</a>
           </li>
         
       </ul>

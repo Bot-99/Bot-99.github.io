@@ -62,6 +62,42 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c-basic-ch5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/09/c-basic-ch5/" class="article-date">
+  <time datetime="2020-07-09T11:05:03.000Z" itemprop="datePublished">2020-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/09/c-basic-ch5/">c-basic-ch5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/09/c-basic-ch5/" data-id="ckceopv3p0005gnro2nimbhvl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-SQL-basic" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/08/SQL-basic/" class="article-date">
@@ -76,7 +112,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/08/SQL-basic/">SQL_basic</a>
+      <a class="article-title" href="/2020/07/08/SQL-basic/">SQL basic （MariaDB)</a>
     </h1>
   
 
@@ -84,13 +120,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="創建db的簡單流程"><a href="#創建db的簡單流程" class="headerlink" title="創建db的簡單流程"></a>創建db的簡單流程</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">test</span>; <span class="comment">#創建一個名test的db</span></span><br><span class="line"><span class="keyword">USE</span> office; <span class="comment">#用office</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> employee(  <span class="comment">#在office下創建一個table</span></span><br><span class="line">	id_ <span class="built_in">int</span>,							<span class="comment">#第一列名稱是id_</span></span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">255</span>)   	<span class="comment">#第二列名稱是name</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="新增data"><a href="#新增data" class="headerlink" title="新增data"></a>新增data</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> employee  <span class="comment">#往employee添加一個data</span></span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">1234</span>, <span class="string">'Tim'</span>)   <span class="comment">#id_ = 1234, name = 'Tim'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更新data"><a href="#更新data" class="headerlink" title="更新data"></a>更新data</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> employee  <span class="comment">#更改id_ = 1234中name的data</span></span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">name</span> = <span class="string">'Sam'</span></span><br><span class="line"><span class="keyword">WHERE</span> id_ = <span class="number">1234</span></span><br></pre></td></tr></table></figure>
+<p>如要更新所有data的某個var成同一個值，可以去掉<code>WHERE id_ = 1234</code>,但切記三思而行</p>
+<h3 id="查閱命令"><a href="#查閱命令" class="headerlink" title="查閱命令"></a>查閱命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>; <span class="comment">#可以知道目前sql有哪些db</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;  <span class="comment">#可以知道在當前db中有哪些tables</span></span><br></pre></td></tr></table></figure>
+<p>當我們想知道table中有哪些data</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employee</span><br></pre></td></tr></table></figure>
+<p>上述語句中<code>*</code>代表全部的意思，所以當我們需要<code>id_</code>一列時，只需</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> id_ <span class="keyword">FROM</span> employee</span><br></pre></td></tr></table></figure>
+
+<h3 id="備份／復原db"><a href="#備份／復原db" class="headerlink" title="備份／復原db"></a>備份／復原db</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump office &gt; office_bp.sql # 備份</span><br><span class="line">mysql office &lt; office_bp.sql 		#復原</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>次次玩SQL都唔記得</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">https://www.w3schools.com/sql/</a></li>
+<li><a href="https://sqlbackupandftp.com/blog/mariadb-backup-and-restore-overview" target="_blank" rel="noopener">https://sqlbackupandftp.com/blog/mariadb-backup-and-restore-overview</a></li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/08/SQL-basic/" data-id="ckceb9p750000inroeohy8mjk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/08/SQL-basic/" data-id="ckceopv3o0004gnroa5256yua" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
     </footer>
   </div>
   
@@ -112,7 +170,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/08/Flask-basic/">Flask基本操作</a>
+      <a class="article-title" href="/2020/07/08/Flask-basic/">Flask basic</a>
     </h1>
   
 
@@ -120,7 +178,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>初始步驟,打開terminal（linux／mac）／ cmd（win</p>
+        <p>初始步驟,打開terminal（linux／mac）／ cmd（win）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir myPage #開一個folder</span><br><span class="line">touch app.py #創建一個app.py的file</span><br></pre></td></tr></table></figure>
 
 <p>建立一個folder，是為了方便其後管理</p>
@@ -139,6 +197,8 @@
 <h3 id="必用"><a href="#必用" class="headerlink" title="必用"></a>必用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/main/&lt;string:id_&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(id_)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> id_</span><br></pre></td></tr></table></figure>
 
 <p>利用<code>@app.route(&#39;main&#39;)</code>可以以<code>main</code>為名創建一個新page，當訪問時，只需要在初始地址<code>http://127.0.0.1:5000／</code>加上<code>main</code>，即是<code>http://127.0.0.1:5000／main</code>。 而我們亦須利用<code>def</code>命名同名的func。<br><code>&lt;string:id_&gt;</code>能創建參數（argument），使用時，填入func即可，如上述<code>main(id_)</code>。當需多個argument，即<code>main/&lt;string:id_&gt;/&lt;int:total&gt;</code>使用時，只需在地址上加上參數，如<code>http://127.0.0.1:5000/main/1234/50</code></p>
+<hr>
+<p>​    近排幫師弟師妹手，順便重溫一下舊年玩過嘅flask</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/" target="_blank" rel="noopener">https://flask.palletsprojects.com/en/1.1.x/quickstart/</a></li>
 <li><a href="https://stackoverflow.com" target="_blank" rel="noopener">https://stackoverflow.com</a> (有些是上年看的，所以沒有紀錄)</li>
@@ -147,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/08/Flask-basic/" data-id="ckceb9p7a0002inro4j14hj74" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/08/Flask-basic/" data-id="ckceopv3h0000gnroh06d463h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
@@ -159,9 +219,9 @@
 
 
   
-    <article id="post-c_basic" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-c-basic-ch3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/07/06/c_basic/" class="article-date">
+    <a href="/2020/07/06/c-basic-ch3/" class="article-date">
   <time datetime="2020-07-06T11:04:13.000Z" itemprop="datePublished">2020-07-06</time>
 </a>
     
@@ -173,7 +233,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/06/c_basic/">C基礎筆記(數據類型)</a>
+      <a class="article-title" href="/2020/07/06/c-basic-ch3/">C basic(數據類型)</a>
     </h1>
   
 
@@ -230,7 +290,7 @@
 <li>double</li>
 <li>long double</li>
 </ul>
-<h3 id="字符char"><a href="#字符char" class="headerlink" title="字符char"></a>字符char</h3><p>​  C lang 把1byte定義為char類型</p>
+<h3 id="字符char"><a href="#字符char" class="headerlink" title="字符char"></a>字符char</h3><p>  C lang 把1byte定義為char類型</p>
 <h3 id="Bool類型"><a href="#Bool類型" class="headerlink" title="_Bool類型"></a>_Bool類型</h3><h4 id="true-false"><a href="#true-false" class="headerlink" title="true false"></a><code>true false</code></h4><ul>
 <li>0 代表 false</li>
 <li>1 代表 true</li>
@@ -243,6 +303,8 @@
 <li>double = 8 bytes</li>
 <li>lond doube = 16 bytes</li>
 </ul>
+<hr>
+<p>​    學左python，再學C真係好__痛苦啊！</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li>C primer plus</li>
 </ol>
@@ -250,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/06/c_basic/" data-id="ckceb9p7c0003inro3uebgdi7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/06/c-basic-ch3/" data-id="ckceopv3l0002gnrofphwhs24" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
@@ -275,7 +337,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
     </div>
   </div>
 
@@ -285,7 +347,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a>
+      <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a>
     </div>
   </div>
 
@@ -307,15 +369,19 @@
       <ul>
         
           <li>
-            <a href="/2020/07/08/SQL-basic/">SQL_basic</a>
+            <a href="/2020/07/09/c-basic-ch5/">c-basic-ch5</a>
           </li>
         
           <li>
-            <a href="/2020/07/08/Flask-basic/">Flask基本操作</a>
+            <a href="/2020/07/08/SQL-basic/">SQL basic （MariaDB)</a>
           </li>
         
           <li>
-            <a href="/2020/07/06/c_basic/">C基礎筆記(數據類型)</a>
+            <a href="/2020/07/08/Flask-basic/">Flask basic</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/06/c-basic-ch3/">C basic(數據類型)</a>
           </li>
         
       </ul>
