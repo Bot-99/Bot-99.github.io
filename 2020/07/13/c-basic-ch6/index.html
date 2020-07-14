@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>C basic(循環及數組) | Bot-99&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​    有些在python中學過，所以唔詳細寫  While123while(expression)&amp;#123;  statement&amp;#125;  運算符號優先次序  ( ) 左至右 - + ++ -- sizeof右至左 * &#x2F; % 左至右 + - 左至右 &lt; &gt; &lt;&#x3D; &gt;&#x3D; 左至右 &gt; 大於 &lt; 小於 &gt;&#x3D; 大於或等於 &lt;&#x3D; 小於或等於">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C basic(循環及數組)">
+<meta property="og:url" content="http://yoursite.com/2020/07/13/c-basic-ch6/index.html">
+<meta property="og:site_name" content="Bot-99&#39;s blog">
+<meta property="og:description" content="​    有些在python中學過，所以唔詳細寫  While123while(expression)&amp;#123;  statement&amp;#125;  運算符號優先次序  ( ) 左至右 - + ++ -- sizeof右至左 * &#x2F; % 左至右 + - 左至右 &lt; &gt; &lt;&#x3D; &gt;&#x3D; 左至右 &gt; 大於 &lt; 小於 &gt;&#x3D; 大於或等於 &lt;&#x3D; 小於或等於">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-13T11:00:21.000Z">
+<meta property="article:modified_time" content="2020-07-14T01:30:30.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bot-99&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-c-basic-ch6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/13/c-basic-ch6/" class="article-date">
+  <time datetime="2020-07-13T11:00:21.000Z" itemprop="datePublished">2020-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C basic(循環及數組)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    有些在python中學過，所以唔詳細寫</p>
+<hr>
+<h2 id="While"><a href="#While" class="headerlink" title="While"></a>While</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(expression)&#123;</span><br><span class="line">  statement</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>運算符號優先次序</p>
+<ul>
+<li><code>( )</code> 左至右</li>
+<li><code>- + ++ -- sizeof</code>右至左</li>
+<li><code>* / %</code> 左至右</li>
+<li><code>+ -</code> 左至右</li>
+<li><code>&lt; &gt; &lt;= &gt;=</code> 左至右<ul>
+<li><code>&gt;</code> 大於</li>
+<li><code>&lt;</code> 小於</li>
+<li><code>&gt;=</code> 大於或等於</li>
+<li><code>&lt;=</code> 小於或等於</li>
+</ul>
+</li>
+<li><code>== !=</code> 左至右<ul>
+<li><code>==</code> 等於</li>
+<li><code>!=</code> 不等於</li>
+</ul>
+</li>
+<li><code>=</code> 右至左</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( n++ &lt; <span class="number">5</span>)</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>,n);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>( n++ &lt; <span class="number">100</span>)&#123;</span><br><span class="line">  t = n + t</span><br><span class="line">  c = <span class="number">100</span> * n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>while</code> 可以無限循環，例如<code>while(true)</code></p>
+<h2 id="For"><a href="#For" class="headerlink" title="For"></a>For</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(init;test;update)</span><br><span class="line">	statement</span><br><span class="line">	</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num = <span class="number">1</span>; num &lt;=<span class="number">6</span>; num++)</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"num: %d\n"</span>, num);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"final num: %d"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//num: 0</span></span><br><span class="line"><span class="comment">//num: 1</span></span><br><span class="line"><span class="comment">//num: 2</span></span><br><span class="line"><span class="comment">//num: 3</span></span><br><span class="line"><span class="comment">//num: 4</span></span><br><span class="line"><span class="comment">//num: 5</span></span><br><span class="line"><span class="comment">//num: 6</span></span><br><span class="line"><span class="comment">//final: 7</span></span><br></pre></td></tr></table></figure>
+<p>留意上述中num的最終值不是6，而是7</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">int</span> c;</span><br><span class="line"><span class="keyword">int</span> d;</span><br><span class="line"><span class="keyword">for</span>(c = <span class="number">7</span>, d = <span class="number">21</span>; c &lt;= <span class="number">19</span>; c++, d*=c)</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+
+<p>我們可以用<code>,</code> 增加多一個var</p>
+<p>而我們亦可以用char代替int</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> i=<span class="string">'A'</span>; i &lt;= <span class="string">'C'</span>; i++)</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%c"</span>, i);</span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//ABC</span></span><br></pre></td></tr></table></figure>
+<p><code>for</code>可以省略一個或多個表達式（init／test ／update），但不可以省略<code>;</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> n = <span class="number">3</span>; ans &lt;= <span class="number">25</span>;)</span><br><span class="line">	...</span><br><span class="line"><span class="keyword">for</span>(; ;) <span class="comment">//無限循環</span></span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌套循環（nested-loop）"><a href="#嵌套循環（nested-loop）" class="headerlink" title="嵌套循環（nested loop）"></a>嵌套循環（nested loop）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rows;</span><br><span class="line"><span class="keyword">int</span> cols;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(rows = <span class="number">0</span>; cols &lt;= <span class="number">2</span>; rows++)&#123;</span><br><span class="line">  <span class="keyword">for</span>(cols = <span class="number">0</span>; rows &lt;= <span class="number">3</span>; cols++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"A"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//AAA</span></span><br><span class="line"><span class="comment">//AAA</span></span><br></pre></td></tr></table></figure>
+
+<p>我們可以在<code>for</code>內增叫循環 </p>
+<h2 id="其他賦值符號"><a href="#其他賦值符號" class="headerlink" title="其他賦值符號"></a>其他賦值符號</h2><p><code>+= -= *= /= %=</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i += <span class="number">8</span> <span class="comment">// i = i + 8</span></span><br><span class="line">i -= <span class="number">3</span> <span class="comment">// i = i - 3</span></span><br><span class="line">i *= <span class="number">1</span> <span class="comment">// i = i * 1</span></span><br><span class="line">i /= <span class="number">6</span> <span class="comment">// i = i / 6</span></span><br><span class="line">i %= <span class="number">12</span> <span class="comment">// i = i % 12</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="do-while"><a href="#do-while" class="headerlink" title="do while"></a>do while</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span></span><br><span class="line">  statement</span><br><span class="line"><span class="keyword">while</span> (statement)</span><br></pre></td></tr></table></figure>
+
+<p><code>do while</code> 和 <code>while</code>相比，前者會至少運行一次循環中的內容</p>
+<h2 id="數組-array"><a href="#數組-array" class="headerlink" title="數組 array"></a>數組 array</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> marks[<span class="number">20</span>];  <span class="comment">//聲明一個有20個int類型的數組</span></span><br><span class="line"><span class="keyword">float</span> price[];</span><br></pre></td></tr></table></figure>
+
+<p>char數組，不是string</p>
+<p>當char數組末尾有空char<code>\0</code> ,那麼該數組也是string </p>
+<h2 id="函數返回（return）"><a href="#函數返回（return）" class="headerlink" title="函數返回（return）"></a>函數返回（return）</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">power</span><span class="params">(<span class="keyword">double</span> n, <span class="keyword">int</span> p)</span></span>&#123;  <span class="comment">//1.確定返回類型</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">double</span> <span class="built_in">pow</span> = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=p; i++)</span><br><span class="line">  	<span class="built_in">pow</span> *= n</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> power <span class="comment">//2.使用return返回val</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我們亦可以如以下般使用<code>return</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="number">2</span> * x / d</span><br></pre></td></tr></table></figure>
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li>C Prime Plus</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/13/c-basic-ch6/" data-id="ckcl9ea2d0000w5ro2c7z0dio" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/09/c-basic-ch5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C basic(運算符號、表達式和語句)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/13/c-basic-ch6/">C basic(循環及數組)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/09/c-basic-ch5/">C basic(運算符號、表達式和語句)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/08/SQL-basic/">SQL basic （MariaDB)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/08/Flask-basic/">Flask basic</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/06/c_basic_ch3/">C basic(數據類型)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
