@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>C basic ch4(字符串和格式化輸入／出) | Bot-99&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="字符串 Char String1#define t &quot;Hello World!&quot;  同char一樣，string的雙引號是為了讓編譯器識別字符串 Hello World!\0中\0不代表0 ,而是空字符（null char），亦代表這數組是string，因為C中沒有專門儲存char str的類型，這也意味數組的容量比char str多1個char char vs char str12&#39;x&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C basic ch4(字符串和格式化輸入／出)">
+<meta property="og:url" content="http://yoursite.com/2020/07/14/c-basic-ch4/index.html">
+<meta property="og:site_name" content="Bot-99&#39;s blog">
+<meta property="og:description" content="字符串 Char String1#define t &quot;Hello World!&quot;  同char一樣，string的雙引號是為了讓編譯器識別字符串 Hello World!\0中\0不代表0 ,而是空字符（null char），亦代表這數組是string，因為C中沒有專門儲存char str的類型，這也意味數組的容量比char str多1個char char vs char str12&#39;x&amp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-14T11:45:37.000Z">
+<meta property="article:modified_time" content="2020-07-15T05:40:11.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bot-99&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-c-basic-ch4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/14/c-basic-ch4/" class="article-date">
+  <time datetime="2020-07-14T11:45:37.000Z" itemprop="datePublished">2020-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C basic ch4(字符串和格式化輸入／出)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="字符串-Char-String"><a href="#字符串-Char-String" class="headerlink" title="字符串 Char String"></a>字符串 Char String</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> t <span class="meta-string">"Hello World!"</span></span></span><br></pre></td></tr></table></figure>
+
+<p>同char一樣，string的雙引號是為了讓編譯器識別字符串</p>
+<p><code>Hello World!\0</code>中<code>\0</code>不代表<code>0</code> ,而是空字符（null char），亦代表這數組是string，因為C中沒有專門儲存char str的類型，這也意味數組的容量比char str多1個char</p>
+<h4 id="char-vs-char-str"><a href="#char-vs-char-str" class="headerlink" title="char vs char str"></a>char vs char str</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;x&#39; &#x3D; x   &#x2F;&#x2F;這是一個char</span><br><span class="line">&quot;x&quot; &#x3D; x\0 &#x2F;&#x2F;這是一個char strs</span><br></pre></td></tr></table></figure>
+
+<h4 id="strlen-vs-sizeof"><a href="#strlen-vs-sizeof" class="headerlink" title="strlen() vs sizeof"></a>strlen() vs sizeof</h4><ul>
+<li><code>strlen()</code> 和 <code>sizeof</code> 同樣適用<code>%zd</code></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; //提供strlen()</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> test <span class="meta-string">"Hello world"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"strlen(): %zd, sizeof: %zd \n"</span>, <span class="built_in">strlen</span>(test), <span class="keyword">sizeof</span> test);</span><br><span class="line">  	<span class="keyword">char</span> name[<span class="number">40</span>] = <span class="string">"Sam"</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"strlen(): %zd, sizeof: %zd \n"</span>, <span class="built_in">strlen</span>(name), <span class="keyword">sizeof</span> name);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//strlen(): 11, sizeof: 12</span></span><br><span class="line"><span class="comment">//strlen(): 3, sizeof: 40</span></span><br></pre></td></tr></table></figure>
+
+<p>由此可見，<code>sizeof</code> 只會反應數組大小，而<code>strlen()</code> 則會識別char str中的<code>\0</code> (空字符)</p>
+<h2 id="常量-（constant）"><a href="#常量-（constant）" class="headerlink" title="常量 （constant）"></a>常量 （constant）</h2><h3 id="define"><a href="#define" class="headerlink" title="define"></a>define</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NAME value</span></span><br></pre></td></tr></table></figure>
+
+<p>在C中，我們通常會以大寫表示符號常量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BEEP <span class="meta-string">'\a'</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TEE <span class="meta-string">'T'</span></span></span><br></pre></td></tr></table></figure>
+
+<p>謹記不需要用<code>=</code>, 否則如以下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TOES = 20</span></span><br><span class="line">digits = fingers + TOES; <span class="comment">//等於 digits = fingers + = 20;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MONTHS = <span class="number">12</span>;</span><br></pre></td></tr></table></figure>
+
+<p>MONTHS成為一個常量，但在程序中不得更改MONTHS的val</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li>C prime plus</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/14/c-basic-ch4/" data-id="ckcmxrwp00004iyroffxo4yre" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/13/c-basic-ch6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C basic ch6(循環及數組)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/14/c-basic-ch4/">C basic ch4(字符串和格式化輸入／出)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/13/c-basic-ch6/">C basic ch6(循環及數組)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/09/c-basic-ch5/">C basic ch5(運算符號、表達式和語句)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/08/SQL-basic/">SQL basic （MariaDB)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/08/Flask-basic/">Flask basic</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
