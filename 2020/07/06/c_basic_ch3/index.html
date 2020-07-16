@@ -15,7 +15,7 @@
 <meta property="og:description" content="數據類型位、字節、和字 bit (位)  最小的存儲空間 存 0 ／ 1   byte(字節) 1 byte &#x3D;&#x3D; 8 bit 8 byte 有256個0、1組合， 即是2^8 通過2進制，可以表示0-255&#x2F;一組字符char    整數 int short int(16bit) &amp; int(16&#x2F;32bit)   -32767 - 32767   long int &#x2F; long(32bi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-06T11:04:13.000Z">
-<meta property="article:modified_time" content="2020-07-16T05:19:45.000Z">
+<meta property="article:modified_time" content="2020-07-16T05:25:53.000Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
@@ -126,10 +126,10 @@
 <li><p>關鍵字 signed， 強調使用有符號</p>
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"dec = %d; octal = %o;  hex = %x\n"</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"dec = %d; octal = %#o; hex = %#x\n"</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//dec = 100; octal = 144; hex = 64;</span></span><br><span class="line"><span class="comment">//dec = 100; octal = 0144; hex = 0x64;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"dec = %d; octal = %o;  hex = %x\n"</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"dec = %d; octal = %#o; hex = %#x\n"</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//dec = 100; octal = 144; hex = 64;</span></span><br><span class="line"><span class="comment">//dec = 100; octal = 0144; hex = 0x64;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="整數溢出"><a href="#整數溢出" class="headerlink" title="整數溢出"></a>整數溢出</h3><p>  如果整數超越取值範圍，會重新從起點開始</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2147483647</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, i, i+<span class="number">1</span>, i+<span class="number">2</span>)</span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">// 2147483647 -2147483648 -2147483647</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2147483647</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, i, i+<span class="number">1</span>, i+<span class="number">2</span>);</span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">// 2147483647 -2147483648 -2147483647</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="浮點數float"><a href="#浮點數float" class="headerlink" title="浮點數float"></a>浮點數float</h3><ul>
 <li>float</li>
@@ -161,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/06/c_basic_ch3/" data-id="ckcocjiuf0009iwro9bc0hiwy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/06/c_basic_ch3/" data-id="ckcocscc50009mkro62zs62gj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
