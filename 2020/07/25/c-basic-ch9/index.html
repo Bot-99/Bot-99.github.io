@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>C Basic ch9(函數／指針簡介) | Bot-99&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;運算符如果不用return返回func的val，那麼必須通過修改main中val 12345int test &#x3D; 24;printf(&quot;%d, %p\n&quot;,test, &amp;test);  &#x2F;&#x2F;%p用左轉換地址&#x2F;&#x2F;result&#x2F;&#x2F;24, 0x7fffa52ecdec  1234567891011121314151617181920212223242526272829303132#in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C Basic ch9(函數／指針簡介)">
+<meta property="og:url" content="http://yoursite.com/2020/07/25/c-basic-ch9/index.html">
+<meta property="og:site_name" content="Bot-99&#39;s blog">
+<meta property="og:description" content="&amp;運算符如果不用return返回func的val，那麼必須通過修改main中val 12345int test &#x3D; 24;printf(&quot;%d, %p\n&quot;,test, &amp;test);  &#x2F;&#x2F;%p用左轉換地址&#x2F;&#x2F;result&#x2F;&#x2F;24, 0x7fffa52ecdec  1234567891011121314151617181920212223242526272829303132#in">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-25T05:45:08.000Z">
+<meta property="article:modified_time" content="2020-07-25T06:40:30.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bot-99&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-c-basic-ch9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/25/c-basic-ch9/" class="article-date">
+  <time datetime="2020-07-25T05:45:08.000Z" itemprop="datePublished">2020-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C Basic ch9(函數／指針簡介)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="amp-運算符"><a href="#amp-運算符" class="headerlink" title="&amp;運算符"></a>&amp;運算符</h2><p>如果不用<code>return</code>返回func的val，那麼必須通過修改main中val</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> test = <span class="number">24</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d, %p\n"</span>,test, &amp;test);  <span class="comment">//%p用左轉換地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//24, 0x7fffa52ecdec</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> test1)</span></span>;</span><br><span class="line"><span class="keyword">int</span> test3 = <span class="number">100</span>;  <span class="comment">//全局變量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> test1 = <span class="number">24</span>;   <span class="comment">//main() 局部</span></span><br><span class="line">    <span class="keyword">int</span> test2 = <span class="number">12</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in main(): test1 = %d, &amp;test1 = %p\n"</span>, test1, &amp;test1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in main(): test2 = %d, &amp;test2 = %p\n"</span>, test2, &amp;test2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in main(): test3 = %d, &amp;test3 = %p\n"</span>, test3, &amp;test3);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    func(test1);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> test1)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> test2 = <span class="number">30</span>; <span class="comment">//func() 局部</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in func(): test1 = %d, &amp;test1 = %p\n"</span>, test1, &amp;test1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in func(): test2 = %d, &amp;test2 = %p\n"</span>, test2, &amp;test2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in func(): test3 = %d, &amp;test3 = %p\n"</span>, test3, &amp;test3);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">in main(): test1 = 24, &amp;test1 = 0x7ffecd9a9578                                                  in main(): test2 = 12, &amp;test2 = 0x7ffecd9a957c                                                  in main(): test3 = 100, &amp;test3 = 0x601048                                                                                                                      </span></span><br><span class="line"><span class="comment">in func(): test1 = 24, &amp;test1 = 0x7ffecd9a954c                                                 </span></span><br><span class="line"><span class="comment">in func(): test2 = 30, &amp;test2 = 0x7ffecd9a955c                                                 </span></span><br><span class="line"><span class="comment">in func(): test3 = 100, &amp;test3 = 0x601048 </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>以上結果可以看到，除了test3的地址在main和func中一致以外，其餘test1和test2皆不同。因此我們得知, func(test1)只傳遞了test1的val，並非地址。</p>
+<h2 id="指針簡介"><a href="#指針簡介" class="headerlink" title="指針簡介"></a>指針簡介</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ptr = &amp;pooh <span class="comment">//把pooh的地址賦予ptr</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="間接運算符（indirection-operator"><a href="#間接運算符（indirection-operator" class="headerlink" title="*間接運算符（indirection operator)"></a>*間接運算符（indirection operator)</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ptr = &amp;bah;</span><br><span class="line">val = *ptr; </span><br><span class="line"><span class="comment">//equal to</span></span><br><span class="line"><span class="comment">//val = bah;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="聲明指針"><a href="#聲明指針" class="headerlink" title="聲明指針"></a>聲明指針</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> * pi;</span><br><span class="line"><span class="keyword">char</span> * pc;</span><br><span class="line"><span class="keyword">float</span> * pf;</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(<span class="keyword">int</span> *x, <span class="keyword">int</span> *y)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">24</span>;  </span><br><span class="line">    <span class="keyword">int</span> y = <span class="number">12</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"old: x = %d, y = %d\n"</span>, x, y);</span><br><span class="line">    exchange(&amp;x, &amp;y);  <span class="comment">//把地址發送到exchange()</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"new: x = %d, y = %d\n"</span>, x, y);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(<span class="keyword">int</span> *x, <span class="keyword">int</span> *y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    temp = *x; <span class="comment">//temp獲得x的val</span></span><br><span class="line">    *x = *y;</span><br><span class="line">    *y = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//result</span></span><br><span class="line"><span class="comment">//old: x = 24, y = 12                                                                                                                                           </span></span><br><span class="line"><span class="comment">//new: x = 12, y = 24</span></span><br></pre></td></tr></table></figure>
+
+<p>千萬不能<code>temp = x</code>,因為 <code>x</code>的val是<code>&amp;x</code> </p>
+<p>再次提醒</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func(x) <span class="comment">// 傳送的是x的val</span></span><br><span class="line">func(&amp;x) <span class="comment">// 傳送的是x的addr</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li>C primer plus</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/25/c-basic-ch9/" data-id="ckd1abbz8000b4ero9k840aku" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/15/c-basic-ch7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C Basic ch7(控制語句)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/25/c-basic-ch9/">C Basic ch9(函數／指針簡介)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/15/c-basic-ch7/">C Basic ch7(控制語句)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/14/c-basic-ch4/">C basic ch4(字符串和格式化輸入／出)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/13/c-basic-ch6/">C basic ch6(循環及數組)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/09/c-basic-ch5/">C basic ch5(運算符號、表達式和語句)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
