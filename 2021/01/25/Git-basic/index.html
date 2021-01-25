@@ -5,16 +5,19 @@
   
 
   
-  <title>About | Bot-99&#39;s blog</title>
+  <title>Git basic | Bot-99&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="Clone Goto the path where you want to place the repo 1cd &#x2F;Documents&#x2F;code  copy the link of repo ![Screen Shot 2021-01-25 at 23.03.37](&#x2F;Users&#x2F;wuchaktin&#x2F;Documents&#x2F;blog&#x2F;source&#x2F;_posts&#x2F;Screen Shot 2021-01-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git basic">
+<meta property="og:url" content="http://yoursite.com/2021/01/25/Git-basic/index.html">
 <meta property="og:site_name" content="Bot-99&#39;s blog">
+<meta property="og:description" content="Clone Goto the path where you want to place the repo 1cd &#x2F;Documents&#x2F;code  copy the link of repo ![Screen Shot 2021-01-25 at 23.03.37](&#x2F;Users&#x2F;wuchaktin&#x2F;Documents&#x2F;blog&#x2F;source&#x2F;_posts&#x2F;Screen Shot 2021-01-">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-08T12:26:40.000Z">
-<meta property="article:modified_time" content="2021-01-25T15:03:13.617Z">
+<meta property="article:published_time" content="2021-01-25T14:57:37.000Z">
+<meta property="article:modified_time" content="2021-01-25T15:18:31.645Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
   
   
@@ -62,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Git-basic" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/about/index.html" class="article-date">
-  <time datetime="2020-07-08T12:26:40.000Z" itemprop="datePublished">2020-07-08</time>
+    <a href="/2021/01/25/Git-basic/" class="article-date">
+  <time datetime="2021-01-25T14:57:37.000Z" itemprop="datePublished">2021-01-25</time>
 </a>
     
   </div>
@@ -76,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      About
+      Git basic
     </h1>
   
 
@@ -84,17 +87,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="Clone"><a href="#Clone" class="headerlink" title="Clone"></a>Clone</h3><ol>
+<li><p>Goto the path where you want to place the repo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /Documents/code</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>copy the link of repo</p>
+<p>![Screen Shot 2021-01-25 at 23.03.37](/Users/wuchaktin/Documents/blog/source/_posts/Screen Shot 2021-01-25 at 23.03.37.png)</p>
+</li>
+<li><p>clone the repo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Bot-99/NR.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>go into the repo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd NR</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>###Branches</p>
+<p>open a new branch</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b peronal/your_name</span><br></pre></td></tr></table></figure>
+
+<p>check the branches of the repo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<p>change the branch</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout main #change back to the origin/main</span><br></pre></td></tr></table></figure>
+
+<h3 id="Add-amp-Commit-amp-push"><a href="#Add-amp-Commit-amp-push" class="headerlink" title="Add&amp;Commit&amp;push"></a>Add&amp;Commit&amp;push</h3><ol>
+<li><p>Add</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add . #add all files</span><br><span class="line">or </span><br><span class="line">git add test.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Commit</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m "1st commit"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Status</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status #this command can check what you did</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Push</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/about/index.html" data-id="ckdeeeayi000rh5ro8c61bu6i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/01/25/Git-basic/" data-id="ckkcpv2xa0000wlro5v7sfh2u" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/25/c-basic-ch10/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C Basic ch10(數組和指針)</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
